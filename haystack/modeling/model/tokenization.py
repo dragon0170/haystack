@@ -238,7 +238,7 @@ class Tokenizer:
         elif model_type == "roberta":
             if "mlm" in pretrained_model_name_or_path.lower():
                 raise NotImplementedError("MLM part of codebert is currently not supported in Haystack")
-            tokenizer_class = "RobertaTokenizer"
+            tokenizer_class = "BertTokenizer"
         elif model_type == "camembert":
             tokenizer_class = "CamembertTokenizer"
         elif model_type == "albert":
