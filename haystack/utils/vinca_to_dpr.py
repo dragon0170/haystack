@@ -283,7 +283,7 @@ def main(
     tqdm.write("2 finished")
 
     # 3. Load data into the document store
-    document_store.add_eval_data(squad_file_path.as_posix(), doc_index="document", preprocessor=preprocessor)
+    document_store.add_eval_data(squad_file_path.as_posix(), doc_index="document", preprocessor=preprocessor, open_domain=True)
     tqdm.write("3 finished")
 
     # 4. Prepare retriever
