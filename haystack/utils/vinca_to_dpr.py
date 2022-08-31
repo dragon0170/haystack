@@ -158,14 +158,14 @@ def has_is_impossible(squad_data: dict):
 def create_dpr_training_dataset(squad_data: dict, retriever: BaseRetriever, num_hard_negative_ctxs: int = 30):
     n_non_added_questions = 0
     n_questions = 0
-    last_question_id = -1
+    last_question_id = "-1"
     dict_DPR = {}
     for idx_article, article in enumerate(tqdm(squad_data, unit="article")):
         article_title = article.get("title", "")
         question_id = article["paragraphs"][0]["qas"][0]["id"].split("-")[0]
 
         if question_id != last_question_id:
-            if question_id != 0:
+            if question_id != "0":
                 hard_negative_ctxs = get_hard_negative_contexts(
                     retriever=retriever, question=dict_DPR["question"], answers=dict_DPR["answers"], n_ctxs=num_hard_negative_ctxs
                 )
